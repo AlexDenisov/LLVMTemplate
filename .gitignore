@@ -1,2 +1,6 @@
 LLVMTemplate.xcodeproj/xcuserdata/
 LLVMTemplate.xcodeproj/project.xcworkspace/xcuserdata/
+
+Sample/*.bc
+Sample/*.ll
+
