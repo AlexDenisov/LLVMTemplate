@@ -8,15 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		46E2EFF41CF0E20400A5789D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E2EFF31CF0E20400A5789D /* main.swift */; };
+		46E2F1001CF5E02D00A5789D /* fib.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F11CF5E01400A5789D /* fib.bc */; };
+		46E2F1011CF5E02D00A5789D /* find_max.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F41CF5E01400A5789D /* find_max.bc */; };
+		46E2F1021CF5E02D00A5789D /* math.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F71CF5E01400A5789D /* math.bc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		46E2EFEE1CF0E20400A5789D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = samples;
+			dstSubfolderSpec = 16;
 			files = (
+				46E2F1001CF5E02D00A5789D /* fib.bc in CopyFiles */,
+				46E2F1011CF5E02D00A5789D /* find_max.bc in CopyFiles */,
+				46E2F1021CF5E02D00A5789D /* math.bc in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -26,6 +32,15 @@
 		46E2EFF01CF0E20400A5789D /* LLVMTemplate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LLVMTemplate; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E2EFF31CF0E20400A5789D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		46E2EFFA1CF0E5DA00A5789D /* LLVM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LLVM.xcconfig; sourceTree = "<group>"; };
+		46E2F0F11CF5E01400A5789D /* fib.bc */ = {isa = PBXFileReference; lastKnownFileType = file; path = fib.bc; sourceTree = "<group>"; };
+		46E2F0F21CF5E01400A5789D /* fib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fib.c; sourceTree = "<group>"; };
+		46E2F0F31CF5E01400A5789D /* fib.ll */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.llvm; path = fib.ll; sourceTree = "<group>"; };
+		46E2F0F41CF5E01400A5789D /* find_max.bc */ = {isa = PBXFileReference; lastKnownFileType = file; path = find_max.bc; sourceTree = "<group>"; };
+		46E2F0F51CF5E01400A5789D /* find_max.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = find_max.c; sourceTree = "<group>"; };
+		46E2F0F61CF5E01400A5789D /* find_max.ll */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.llvm; path = find_max.ll; sourceTree = "<group>"; };
+		46E2F0F71CF5E01400A5789D /* math.bc */ = {isa = PBXFileReference; lastKnownFileType = file; path = math.bc; sourceTree = "<group>"; };
+		46E2F0F81CF5E01400A5789D /* math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = math.c; sourceTree = "<group>"; };
+		46E2F0F91CF5E01400A5789D /* math.ll */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.llvm; path = math.ll; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				46E2EFF21CF0E20400A5789D /* LLVMTemplate */,
+				46E2F0F01CF5E01400A5789D /* Sample */,
 				46E2EFF11CF0E20400A5789D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +78,22 @@
 				46E2EFF31CF0E20400A5789D /* main.swift */,
 			);
 			path = LLVMTemplate;
+			sourceTree = "<group>";
+		};
+		46E2F0F01CF5E01400A5789D /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				46E2F0F11CF5E01400A5789D /* fib.bc */,
+				46E2F0F21CF5E01400A5789D /* fib.c */,
+				46E2F0F31CF5E01400A5789D /* fib.ll */,
+				46E2F0F41CF5E01400A5789D /* find_max.bc */,
+				46E2F0F51CF5E01400A5789D /* find_max.c */,
+				46E2F0F61CF5E01400A5789D /* find_max.ll */,
+				46E2F0F71CF5E01400A5789D /* math.bc */,
+				46E2F0F81CF5E01400A5789D /* math.c */,
+				46E2F0F91CF5E01400A5789D /* math.ll */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
