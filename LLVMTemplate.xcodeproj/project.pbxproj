@@ -11,12 +11,13 @@
 		46E2F1001CF5E02D00A5789D /* fib.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F11CF5E01400A5789D /* fib.bc */; };
 		46E2F1011CF5E02D00A5789D /* find_max.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F41CF5E01400A5789D /* find_max.bc */; };
 		46E2F1021CF5E02D00A5789D /* math.bc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 46E2F0F71CF5E01400A5789D /* math.bc */; };
+		46E2F1061CF5E1A100A5789D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E2F1051CF5E1A100A5789D /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		46E2EFEE1CF0E20400A5789D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = samples;
 			dstSubfolderSpec = 16;
 			files = (
@@ -24,7 +25,7 @@
 				46E2F1011CF5E02D00A5789D /* find_max.bc in CopyFiles */,
 				46E2F1021CF5E02D00A5789D /* math.bc in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -41,6 +42,7 @@
 		46E2F0F71CF5E01400A5789D /* math.bc */ = {isa = PBXFileReference; lastKnownFileType = file; path = math.bc; sourceTree = "<group>"; };
 		46E2F0F81CF5E01400A5789D /* math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = math.c; sourceTree = "<group>"; };
 		46E2F0F91CF5E01400A5789D /* math.ll */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.llvm; path = math.ll; sourceTree = "<group>"; };
+		46E2F1051CF5E1A100A5789D /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				46E2EFFA1CF0E5DA00A5789D /* LLVM.xcconfig */,
 				46E2EFF31CF0E20400A5789D /* main.swift */,
+				46E2F1051CF5E1A100A5789D /* Helpers.swift */,
 			);
 			path = LLVMTemplate;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E2EFF41CF0E20400A5789D /* main.swift in Sources */,
+				46E2F1061CF5E1A100A5789D /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

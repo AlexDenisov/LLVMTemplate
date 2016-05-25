@@ -5,6 +5,14 @@
 
 import LLVM_C
 
-let module = LLVMModuleCreateWithName("Hello, LLVM")
-LLVMDumpModule(module)
-LLVMDisposeModule(module)
+let modules = [sampleMathModule(), sampleFibModule(), sampleFindMaxModule()]
+
+defer {
+    for module in modules {
+        LLVMDisposeModule(module)
+    }
+}
+
+for module in modules {
+    LLVMDumpModule(module)
+}
