@@ -50,3 +50,26 @@ func sampleFindMaxModule() -> LLVMModuleRef {
     let path = "./samples/find_max.bc"
     return loadModuleAtPath(path)
 }
+
+func iterateOverFunctions(module: LLVMModuleRef, yield: (LLVMValueRef) -> ()) {
+    var function = LLVMGetFirstFunction(module)
+    while function != nil {
+        yield(function)
+        function = LLVMGetNextFunction(function)
+    }
+}
+
+func iterateOverInstructions(function: LLVMValueRef, yield: (LLVMValueRef) -> ()) {
+    var basicBlock = LLVMGetFirstBasicBlock(function)
+
+    while basicBlock != nil {
+        var instruction = LLVMGetFirstInstruction(basicBlock)
+
+        while instruction != nil {
+            yield(instruction)
+            instruction = LLVMGetNextInstruction(instruction)
+        }
+
+        basicBlock = LLVMGetNextBasicBlock(basicBlock)
+    }
+}

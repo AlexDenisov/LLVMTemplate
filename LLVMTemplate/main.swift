@@ -5,7 +5,7 @@
 
 import LLVM_C
 
-let modules = [sampleMathModule(), sampleFibModule(), sampleFindMaxModule()]
+let modules = [sampleMathModule(), sampleFindMaxModule(), sampleFibModule()]
 
 defer {
     for module in modules {
@@ -14,5 +14,12 @@ defer {
 }
 
 for module in modules {
-    LLVMDumpModule(module)
+    iterateOverFunctions(module) { (function) in
+        let name = LLVMGetValueName(function)
+        print("\(String.fromCString(name)!):")
+        iterateOverInstructions(function) { (instruction) in
+            LLVMDumpValue(instruction)
+        }
+        print()
+    }
 }
