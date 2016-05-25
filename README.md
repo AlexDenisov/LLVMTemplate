@@ -1,6 +1,6 @@
 # LLVMTemplate
 
-LLVM + Swift Xcode template project
+Template Xcode project to play with Swift and LLVM
 
 ## Installation
 
