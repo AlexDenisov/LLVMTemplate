@@ -1,4 +1,4 @@
 LLVM_SOURCE_DIR = $(HOME)/LLVM/src
 LLVM_BUILD_DIR  = $(HOME)/LLVM/build
 
-LLVM_LINKER_FLAGS = -lLLVMCore -lLLVMSupport -lLLVMTransformUtils -lLLVMBitReader -lLLVMAnalysis
+LLVM_LINKER_FLAGS = -lLLVMCore -lLLVMSupport -lLLVMTransformUtils -lLLVMBitReader -lLLVMAnalysis -lLLVMDemangle

@@ -6,34 +6,34 @@
 import Foundation
 import LLVM_C
 
-func loadModuleAtPath(path: String) -> LLVMModuleRef {
-    let errorMessage = UnsafeMutablePointer<UnsafeMutablePointer<Int8>>.alloc(1)
-    let buffer = UnsafeMutablePointer<LLVMMemoryBufferRef>.alloc(1)
-    let module = UnsafeMutablePointer<LLVMModuleRef>.alloc(1)
+func loadModuleAtPath(_ path: String) -> LLVMModuleRef {
+    let errorMessage = UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>.allocate(capacity: 1)
+    let buffer = UnsafeMutablePointer<LLVMMemoryBufferRef?>.allocate(capacity: 1)
+    let module = UnsafeMutablePointer<LLVMModuleRef?>.allocate(capacity: 1)
 
     defer {
-        errorMessage.dealloc(1)
-        buffer.dealloc(1)
-        module.dealloc(1)
+        errorMessage.deallocate(capacity: 1)
+        buffer.deallocate(capacity: 1)
+        module.deallocate(capacity: 1)
     }
 
     if LLVMCreateMemoryBufferWithContentsOfFile(path, buffer, errorMessage) != 0 {
-        print("Can't load module '\(path)': \(String.fromCString(errorMessage.memory)!)")
+        print("Can't load module '\(path)': \(String(cString: errorMessage.pointee!))")
         exit(1)
     }
 
     defer {
-        LLVMDisposeMemoryBuffer(buffer.memory)
+        LLVMDisposeMemoryBuffer(buffer.pointee)
     }
 
-    if LLVMParseBitcodeInContext2(LLVMGetGlobalContext(), buffer.memory, module) != 0 {
+    if LLVMParseBitcodeInContext2(LLVMGetGlobalContext(), buffer.pointee, module) != 0 {
         print("Can't load module '\(path)'")
         exit(1)
     }
 
-    let resultingModule = LLVMCloneModule(module.memory)
+    let resultingModule = LLVMCloneModule(module.pointee)
 
-    return resultingModule
+    return resultingModule!
 }
 
 func sampleMathModule() -> LLVMModuleRef {
@@ -51,22 +51,22 @@ func sampleFindMaxModule() -> LLVMModuleRef {
     return loadModuleAtPath(path)
 }
 
-func iterateOverFunctions(module: LLVMModuleRef, yield: (LLVMValueRef) -> ()) {
+func iterateOverFunctions(_ module: LLVMModuleRef, yield: (LLVMValueRef) -> ()) {
     var function = LLVMGetFirstFunction(module)
     while function != nil {
-        yield(function)
+        yield(function!)
         function = LLVMGetNextFunction(function)
     }
 }
 
-func iterateOverInstructions(function: LLVMValueRef, yield: (LLVMValueRef) -> ()) {
+func iterateOverInstructions(_ function: LLVMValueRef, yield: (LLVMValueRef) -> ()) {
     var basicBlock = LLVMGetFirstBasicBlock(function)
 
     while basicBlock != nil {
         var instruction = LLVMGetFirstInstruction(basicBlock)
 
         while instruction != nil {
-            yield(instruction)
+            yield(instruction!)
             instruction = LLVMGetNextInstruction(instruction)
         }
 

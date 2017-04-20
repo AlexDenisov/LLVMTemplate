@@ -16,7 +16,7 @@ defer {
 for module in modules {
     iterateOverFunctions(module) { (function) in
         let name = LLVMGetValueName(function)
-        print("\(String.fromCString(name)!):")
+        print("\(String(cString: name!)):")
         iterateOverInstructions(function) { (instruction) in
             LLVMDumpValue(instruction)
         }

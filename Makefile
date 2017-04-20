@@ -9,12 +9,12 @@ SAMPLE_SOURCES=math.c fib.c find_max.c
 setup:
 	mkdir -p $(LLVM_SOURCE_DIR)
 	mkdir -p $(LLVM_BUILD_DIR)
-	
+
 	cd $(LLVM_SOURCE_DIR) && \
 		git init . && \
 		git remote add origin $(LLVM_REMOTE_URL) && \
 		git pull origin master
-	
+
 	cd $(LLVM_BUILD_DIR) && \
 		cmake $(LLVM_SOURCE_DIR)
 
